@@ -33,9 +33,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import dev.alshakib.log.LogCompat;
 import dev.alshakib.log.example.databinding.FragmentMainBinding;
+import dev.alshakib.log.example.model.Music;
 
 public class MainFragment extends Fragment {
     private FragmentMainBinding viewBinding;
@@ -52,5 +55,16 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         viewBinding = FragmentMainBinding.inflate(inflater, container, false);
         return viewBinding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Music music = new Music();
+        music.setId(123);
+        music.setTitle("Demo title");
+        music.setAlbum("Demo album");
+        music.setArtist("Demo artist");
+        LogCompat.info(this, music);
     }
 }
