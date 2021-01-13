@@ -33,14 +33,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import dev.alshakib.log.LogCompat;
+import dev.alshakib.log.example.R;
 import dev.alshakib.log.example.databinding.FragmentMainBinding;
-import dev.alshakib.log.example.model.Music;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements View.OnClickListener {
     private FragmentMainBinding viewBinding;
 
     public MainFragment() { }
@@ -54,17 +53,18 @@ public class MainFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         viewBinding = FragmentMainBinding.inflate(inflater, container, false);
+        viewBinding.sendLogButton.setOnClickListener(this);
         return viewBinding.getRoot();
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        Music music = new Music();
-        music.setId(123);
-        music.setTitle("Demo title");
-        music.setAlbum("Demo album");
-        music.setArtist("Demo artist");
-        LogCompat.info(this, music);
+    public void onClick(View v) {
+        if (v.getId() == R.id.send_log_button) {
+            onClickSendLog();
+        }
+    }
+
+    private void onClickSendLog() {
+        LogCompat.info(this, viewBinding.logEditText.getText());
     }
 }
