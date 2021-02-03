@@ -82,6 +82,7 @@ artifacts {
 }
 
 // Bintray
+version = libraryVersion
 group = bintrayPackageName // Maven Group ID for the artifact
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
