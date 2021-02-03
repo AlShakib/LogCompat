@@ -28,8 +28,8 @@
 buildscript {
     ext {
         // Log Compat version
-        global_version_code = 1
-        global_version_number = '1.0.0'
+        global_version_code = 2
+        global_version_number = '1.0.1'
 
         // App SDK versions
         compileSdkVersion = 30
