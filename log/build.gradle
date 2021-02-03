@@ -26,32 +26,6 @@
  */
 
 apply plugin: 'com.android.library'
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'com.github.dcendents.android-maven'
-
-ext {
-    bintrayRepo = "LogCompat"
-    bintrayName = "dev.alshakib.log"
-
-    publishedGroupId = 'dev.alshakib.log'
-    artifact = 'log'
-    libraryName = 'log'
-
-    libraryDescription = 'Log Compat is a minimal log viewer for Android Application.'
-
-    siteUrl = 'https://github.com/AlShakib/LogCompat'
-    gitUrl = 'https://github.com/AlShakib/LogCompat.git'
-
-    libraryVersion = "$global_version_number"
-
-    developerId = 'AlShakib'
-    developerName = 'Al Shakib'
-    developerEmail = 'shakib@alshakib.dev'
-
-    licenseName = 'MIT License'
-    licenseUrl = 'https://github.com/AlShakib/LogCompat/blob/main/LICENSE'
-    allLicenses = ["MIT"]
-}
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -92,6 +66,5 @@ dependencies {
 }
 
 if (project.rootProject.file('local.properties').exists()) {
-    apply from: 'install.gradle'
     apply from: 'bintray.gradle'
 }
