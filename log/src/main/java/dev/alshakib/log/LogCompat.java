@@ -35,7 +35,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public final class LogCompat {
-    private final static String DEFAULT_LOG_TAG = "LogCompat";
+    private static String DEFAULT_LOG_TAG = "LogCompat";
+
+    public static void setDefaultLogTag(String tag) {
+        DEFAULT_LOG_TAG = tag;
+    }
 
     private static String prettyPrint(String message) {
         try {
